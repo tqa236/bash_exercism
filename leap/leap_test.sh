@@ -9,7 +9,7 @@
 }
 
 @test 'year divisible by 4, not divisible by 100: leap year' {
-  skip
+  #skip
   run bash leap.sh 1996
 
   [ "$status" -eq 0 ]
@@ -17,7 +17,7 @@
 }
 
 @test 'year divisible by 100, not divisible by 400: common year' {
-  skip
+  #skip
   run bash leap.sh 2100
 
   [ "$status" -eq 0 ]
@@ -25,7 +25,7 @@
 }
 
 @test 'year divisible by 400: leap year' {
-  skip
+  #skip
   run bash leap.sh 2000
 
   [ "$status" -eq 0 ]
@@ -33,15 +33,16 @@
 }
 
 @test 'No input should return an error' {
-  skip
+  #skip
   run bash leap.sh
-
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 1 ]
   [ "$output" = 'Usage: leap.sh <year>' ]
 }
 
 @test 'Too many arguments should return an error' {
-  skip
+  #skip
   run bash leap.sh 2016 4562 4566
 
   [ "$status" -eq 1 ]
@@ -49,7 +50,7 @@
 }
 
 @test 'Float number input should return an error' {
-  skip
+  #skip
   run bash leap.sh 2016.54
 
   [ "$status" -eq 1 ]
@@ -57,7 +58,7 @@
 }
 
 @test 'Alpha input should return an error' {
-  skip
+  #skip
   run bash leap.sh 'abcd'
 
   [ "$status" -eq 1 ]
