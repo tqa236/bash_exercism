@@ -9,6 +9,7 @@ for path in */; do
     file_name=${file_name/-/_}
     solution="${file_name}.sh"
     test="${file_name}_test.sh"
+    touch $solution
     chmod +x $solution $test
     cd ..
 done
