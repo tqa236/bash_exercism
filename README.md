@@ -1,2 +1,3 @@
-# bash_exercism
-Bash track on Exercism
+# Bash Exercism
+
+Solutions for Bash track on Exercism
