@@ -7,9 +7,9 @@ main() {
   copy=${input}
   len=${#copy}
   rev=""
-  for((i=$len-1;i>=0;i--)); do rev="$rev${copy:$i:1}"; done
+  for((i=len-1;i>=0;i--)); do rev="$rev${copy:$i:1}"; done
 
-  echo $rev
+  echo "$rev"
 }
 
 main "$@"

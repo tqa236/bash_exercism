@@ -15,9 +15,9 @@ main() {
     text+="Plong"
   fi
   if [ -z "$text" ]; then
-    echo $number
+    echo "$number"
   else
-    echo $text
+    echo "$text"
   fi
 }
 

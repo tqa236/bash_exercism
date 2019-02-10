@@ -16,7 +16,7 @@ main() {
   # you can use input="$@" to get a string with ALL arguments
   input=$1
   # Add your code here
-  echo $input
+  echo "$input"
 }
 
 # Calls the main function passing all the arguments to it via '$@'

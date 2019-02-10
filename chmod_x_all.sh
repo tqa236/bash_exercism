@@ -3,13 +3,11 @@
 for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
-    cd $dirname
-    # echo $path
+    cd "$dirname" || exit
     file_name=${path::-1}
     file_name=${file_name/-/_}
     solution="${file_name}.sh"
     test="${file_name}_test.sh"
-    touch $solution
-    chmod +x $solution $test
-    cd ..
+    touch "$solution"
+    chmod +x "$solution" "$test"
 done

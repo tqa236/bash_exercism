@@ -1,5 +1,9 @@
-language: bash
-sudo: false
-
+language: shell
 script:
-  - find . -iname "*.sh" | grep -v "test" | xargs shellcheck
+  - bash -c 'shopt -s globstar; shellcheck **/*.{sh,ksh,bash}'
+
+# language: bash
+# sudo: false
+#
+# script:
+#   - find . -iname "*.sh" | grep -v "test" | xargs shellcheck

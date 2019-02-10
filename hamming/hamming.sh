@@ -16,7 +16,7 @@ main() {
   count=0
   for ((i=0;i<${#1};i++))
   do
-    if test ${1:$i:1} != ${2:$i:1}
+    if test "${1:$i:1}" != "${2:$i:1}"
     then
       count=$((count + 1))
     fi
