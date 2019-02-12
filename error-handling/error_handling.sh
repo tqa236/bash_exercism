@@ -2,15 +2,13 @@
 set -o errexit
 set -o nounset
 
-main() {
-  if [ "$#" -eq 0 ]; then
+usage() {
     echo "Usage: ./error_handling <greetee>"
-    exit 1
-  elif [ "$#" -ne 1 ]; then
-    echo "Incorrect arguments"
-    exit 1
-  fi
-  echo "Hello, $1"
+}
+
+main() {
+    [[ "$#" -ne 1 ]] && usage && exit 1
+    echo "Hello, $1"
 }
 
 main "$@"
