@@ -3,7 +3,8 @@
 @test 'basic' {
   #skip
   run bash acronym.sh 'Portable Network Graphics'
-
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == 'PNG' ]
 }

@@ -4,4 +4,5 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-main	/home/tqa/exercism/bash/hamming/hamming.sh	/^main() {$/;"	function	line:5
+language	/home/tqa/exercism/bash/.travis.yml	/^language: shell$/;"	function	line:1
+script	/home/tqa/exercism/bash/.travis.yml	/^script:$/;"	function	line:2

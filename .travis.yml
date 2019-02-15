@@ -1,3 +1,4 @@
 language: shell
 script:
   - find . -iname "*.sh" | grep -v "test" | xargs shellcheck
+  - ./test.sh

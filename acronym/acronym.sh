@@ -3,9 +3,12 @@ set -o errexit
 set -o nounset
 
 main() {
-    # shellcheck disable=SC2001
-    input="$(echo "${1,,}" | sed -e "s/\b\(.\)/\u\1/g")"
-    echo "$input" | grep -oP '[A-Z]*' | tr -d '\n'
+    IFS=$' \t\n,-'
+    acronym=(${1^^})
+    for i in "${acronym[@]}"
+    do
+        echo -n "${i:0:1}"
+    done
 }
 
 main "$@"
