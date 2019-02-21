@@ -3,7 +3,7 @@
 for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
-    cd "$dirname" || return
+    cd "$dirname" || exit
     file_name=${path::-1}
     file_name=${file_name//-/_}
     solution="${file_name}.sh"
