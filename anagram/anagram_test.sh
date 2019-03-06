@@ -10,6 +10,8 @@
 @test "detects two anagrams" {
   # skip
   run bash anagram.sh "master" "stream pigeon maters"
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == "stream maters" ]
 }

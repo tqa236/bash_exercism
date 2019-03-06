@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 @test "Degenerate case with a single 'A' row" {
-  #skip
+  # skip
   expected="$(cat << EOT
 A
 EOT
@@ -12,11 +12,11 @@ EOT
 }
 
 @test "Degenerate case with no row containing 3 distinct groups of spaces" {
-  skip
+  # skip
   expected="$(cat << EOT
- A 
+ A
 B B
- A 
+ A
 EOT
 )"
   run bash diamond.sh B
@@ -25,13 +25,13 @@ EOT
 }
 
 @test "Smallest non-degenerate case with odd diamond side length" {
-  skip
+  # skip
   expected="$(cat << EOT
-  A  
- B B 
+  A
+ B B
 C   C
- B B 
-  A  
+ B B
+  A
 EOT
 )"
   run bash diamond.sh C
@@ -40,15 +40,15 @@ EOT
 }
 
 @test "Smallest non-degenerate case with even diamond side length" {
-  skip
+  # skip
   expected="$(cat << EOT
-   A   
-  B B  
- C   C 
+   A
+  B B
+ C   C
 D     D
- C   C 
-  B B  
-   A   
+ C   C
+  B B
+   A
 EOT
 )"
   run bash diamond.sh D
@@ -57,63 +57,62 @@ EOT
 }
 
 @test "Largest possible diamond" {
-  skip
+  # skip
   expected="$(cat << EOT
-                         A                         
-                        B B                        
-                       C   C                       
-                      D     D                      
-                     E       E                     
-                    F         F                    
-                   G           G                   
-                  H             H                  
-                 I               I                 
-                J                 J                
-               K                   K               
-              L                     L              
-             M                       M             
-            N                         N            
-           O                           O           
-          P                             P          
-         Q                               Q         
-        R                                 R        
-       S                                   S       
-      T                                     T      
-     U                                       U     
-    V                                         V    
-   W                                           W   
-  X                                             X  
- Y                                               Y 
+                         A
+                        B B
+                       C   C
+                      D     D
+                     E       E
+                    F         F
+                   G           G
+                  H             H
+                 I               I
+                J                 J
+               K                   K
+              L                     L
+             M                       M
+            N                         N
+           O                           O
+          P                             P
+         Q                               Q
+        R                                 R
+       S                                   S
+      T                                     T
+     U                                       U
+    V                                         V
+   W                                           W
+  X                                             X
+ Y                                               Y
 Z                                                 Z
- Y                                               Y 
-  X                                             X  
-   W                                           W   
-    V                                         V    
-     U                                       U     
-      T                                     T      
-       S                                   S       
-        R                                 R        
-         Q                               Q         
-          P                             P          
-           O                           O           
-            N                         N            
-             M                       M             
-              L                     L              
-               K                   K               
-                J                 J                
-                 I               I                 
-                  H             H                  
-                   G           G                   
-                    F         F                    
-                     E       E                     
-                      D     D                      
-                       C   C                       
-                        B B                        
-                         A                         
+ Y                                               Y
+  X                                             X
+   W                                           W
+    V                                         V
+     U                                       U
+      T                                     T
+       S                                   S
+        R                                 R
+         Q                               Q
+          P                             P
+           O                           O
+            N                         N
+             M                       M
+              L                     L
+               K                   K
+                J                 J
+                 I               I
+                  H             H
+                   G           G
+                    F         F
+                     E       E
+                      D     D
+                       C   C
+                        B B
+                         A
 EOT
 )"
   run bash diamond.sh Z
   [ "$status" -eq 0 ]
   [ "$output" == "$expected" ]
 }
-
