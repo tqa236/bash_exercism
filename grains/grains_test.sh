@@ -77,6 +77,8 @@
 @test "returns the total number of grains on the board" {
   # skip
   run bash grains.sh total
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == "18446744073709551615" ]
 }
