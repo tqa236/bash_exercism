@@ -4,6 +4,7 @@ set -o nounset
 
 chr() {
   [ "$1" -lt 256 ] || return 1
+  # shellcheck disable=SC2059
   printf "\\$(printf '%03o' "$1")"
 }
 

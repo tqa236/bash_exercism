@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 
 main() {
-    echo "Hello"
+    echo "obase=$3;$2" | bc
 }
 
 main "$@"
