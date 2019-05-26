@@ -8,7 +8,9 @@ for path in */; do
     file_name=${file_name//-/_}
     solution="${file_name}.sh"
     test="${file_name}_test.sh"
-    touch "$solution"
+    if [ ! -f $solution ]; then
+        cp ../template.sh $solution
+    fi
     chmod +x "$solution" "$test"
     cd ..
 done
