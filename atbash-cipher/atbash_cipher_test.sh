@@ -19,6 +19,8 @@
 @test "encode OMG" {
   # skip
   run bash atbash_cipher.sh encode "OMG"
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == "lnt" ]
 }
@@ -54,6 +56,8 @@
 @test "encode all the letters" {
   # skip
   run bash atbash_cipher.sh encode "The quick brown fox jumps over the lazy dog."
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt" ]
 }
