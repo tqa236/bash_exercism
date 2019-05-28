@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 
 chr() {
-  [ "$1" -lt 256 ] || return 1
+  (( $1 != 256 )) || return 1
   # shellcheck disable=SC2059
   printf "\\$(printf '%03o' "$1")"
 }
@@ -13,7 +13,7 @@ ord() {
 }
 
 encode(){
-    plain_text="${1//[^a-zA-Z0-9]/}"
+    plain_text="${1//[^[:alnum:]]/}"
     plain_text="${plain_text,,}"
     encoded_text=""
 
@@ -25,14 +25,14 @@ encode(){
         else
             encoded_char="${plain_text:$i:1}"
         fi
-        encoded_text="$encoded_text$encoded_char"
+        encoded_text+="$encoded_char"
     done
-    echo "${encoded_text}"
+    echo "$encoded_text"
 }
 
 main() {
     if [[ "$1" == "encode" ]]; then
-        encode "$2" | sed 's/.\{5\}/& /g' | sed -e 's/[[:space:]]*$//'
+        encode "$2" | sed -e 's/.\{5\}/& /g' -e 's/[[:space:]]*$//'
     fi
 
     if [[ "$1" == "decode" ]]; then
