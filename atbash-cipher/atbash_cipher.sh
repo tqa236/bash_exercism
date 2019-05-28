@@ -12,10 +12,11 @@ ord() {
   LC_CTYPE=C printf '%d' "'$1"
 }
 
-encode(){
-    plain_text="${1//[^[:alnum:]]/}"
+main() {
+    plain_text="${2//[^[:alnum:]]/}"
     plain_text="${plain_text,,}"
     encoded_text=""
+    text_length=${#plain_text}
 
     for((i=0;i<${#plain_text};i++)); do
         index=$(ord "${plain_text:$i:1}")
@@ -25,19 +26,15 @@ encode(){
         else
             encoded_char="${plain_text:$i:1}"
         fi
+
         encoded_text+="$encoded_char"
+
+        if (( i % 5 == 4 )) && (( i < text_length - 1 )) && [[ "$1" == "encode" ]]; then
+            encoded_text+=" "
+        fi
     done
+    
     echo "$encoded_text"
-}
-
-main() {
-    if [[ "$1" == "encode" ]]; then
-        encode "$2" | sed -e 's/.\{5\}/& /g' -e 's/[[:space:]]*$//'
-    fi
-
-    if [[ "$1" == "decode" ]]; then
-        encode "$2"
-    fi
 }
 
 main "$@"

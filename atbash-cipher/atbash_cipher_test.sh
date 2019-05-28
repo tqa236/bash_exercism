@@ -19,8 +19,6 @@
 @test "encode OMG" {
   # skip
   run bash atbash_cipher.sh encode "OMG"
-  echo "status = ${status}"
-  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == "lnt" ]
 }
@@ -35,6 +33,8 @@
 @test "encode mindblowingly" {
   # skip
   run bash atbash_cipher.sh encode "mindblowingly"
+  echo "status = ${status}"
+  echo "output = ${output}"
   [ "$status" -eq 0 ]
   [ "$output" == "nrmwy oldrm tob" ]
 }
