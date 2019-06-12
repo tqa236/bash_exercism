@@ -4,6 +4,7 @@ for path in */; do
     dirname="$(basename "${path}")"
     [ "${dirname}" == "coverage" ] || continue
     cd "$dirname" || exit
+    echo "$dirname"
     file_name=${path::-1}
     file_name=${file_name//-/_}
     solution="${file_name}.sh"
