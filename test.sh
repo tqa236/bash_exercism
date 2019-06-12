@@ -2,7 +2,7 @@
 for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
-    [ "${dirname}" == "coverage" ] || continue
+    [ "${dirname}" != "coverage" ] || continue
     cd "$dirname" || exit
     echo "$dirname"
     file_name=${path::-1}
