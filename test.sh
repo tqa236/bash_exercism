@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 for path in */; do
-    [ "${path}" == "coverage/" ] || echo "${path}" || continue
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
+    [ "${dirname}" == "coverage" ] || continue
     cd "$dirname" || exit
     file_name=${path::-1}
     file_name=${file_name//-/_}
