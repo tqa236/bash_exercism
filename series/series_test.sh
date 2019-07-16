@@ -4,6 +4,8 @@
     #[[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected=(1)
     run bash series.sh 1 1
+    echo "status = ${status}"
+    echo "output = ${output}"
     [[ $status -eq 0 ]]
     [[ $output == "${expected[*]}" ]]
 }
@@ -76,7 +78,8 @@
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
     expected="series cannot be empty"
     run bash series.sh "" 1
+    echo "status = ${status}"
+    echo "output = ${output}"
     [[ $status -eq 1 ]]
     [[ $output == *"$expected"* ]]
 }
-      
