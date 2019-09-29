@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 
 main() {
-    echo "Hello"
+    echo "wink"
 }
 
 main "$@"
