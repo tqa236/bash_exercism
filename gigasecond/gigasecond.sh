@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 main() {
-    date -u -d "$1 + 1000000000 seconds" "+%a %b %-d %T %Z %Y"
+    date -u -d "$1Z +1000000000 second" "+%Y-%m-%dT%H:%M:%S"
 }
 
 main "$@"
