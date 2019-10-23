@@ -17,8 +17,8 @@ main() {
             [ "$line" != "$orig" ] || break
         done
 
-        echo "$line" | grep '^\*' > /dev/null 2>&1
-        if [ $? -eq 0 ]; then
+        flag=$(echo "$line" | grep '^\*')
+        if [ -n "$flag" ]; then
             if [ "$inside_a_list" != yes ]; then
                 h="$h<ul>"
                 inside_a_list=yes
@@ -33,7 +33,7 @@ main() {
             h="$h<li>${line#??}</li>"
 
         else
-            if [ X$inside_a_list = Xyes ]; then
+            if [ "$inside_a_list" = yes ]; then
                 h="$h</ul>"
                 inside_a_list=no
             fi
@@ -61,7 +61,7 @@ main() {
         fi
     done < "$1"
 
-    if [ X$inside_a_list = Xyes ]; then
+    if [ "$inside_a_list" = yes ]; then
         h="$h</ul>"
     fi
 
