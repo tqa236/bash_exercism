@@ -40,8 +40,8 @@ INPUT
   +-+
   | |
 +-+-+
-| |  
-+-+  
+| |
++-+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == 2 ]]

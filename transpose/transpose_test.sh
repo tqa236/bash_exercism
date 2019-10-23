@@ -51,18 +51,18 @@
 The fourth line.
 The fifth line.
 END
-)
+    )
     expected=$( cat <<END
 TT
 hh
 ee
-  
+
 ff
 oi
 uf
 rt
 th
-h 
+h
  l
 li
 in
@@ -70,7 +70,7 @@ ne
 e.
 .
 END
-)
+    )
     run bash transpose.sh <<< "$input"
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -82,26 +82,26 @@ END
 The first line.
 The second line.
 END
-)
+    )
     expected=$( cat <<END
 TT
 hh
 ee
-  
+
 fs
 ie
 rc
 so
 tn
  d
-l 
+l
 il
 ni
 en
 .e
  .
 END
-)
+    )
     run bash transpose.sh <<< "$input"
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -115,17 +115,17 @@ A long line.
 A longer line.
 A line.
 END
-)
+    )
     expected=$( cat <<END
 TAAA
-h   
+h
 elll
  ooi
 lnnn
 ogge
 n e.
 glr
-ei 
+ei
 snl
 tei
  .n
@@ -135,7 +135,7 @@ n
 e
 .
 END
-)
+    )
     run bash transpose.sh <<< "$input"
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]

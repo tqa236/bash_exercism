@@ -32,7 +32,7 @@
     [[ $status -eq 0 ]]
     [[ $output == "clover clover clover clover" ]]
 }
-            
+
 @test "three students, third student's garden" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash kindergarten_garden.sh $'VVCCGG\nVVCCGG' "Charlie"

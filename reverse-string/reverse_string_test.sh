@@ -1,42 +1,42 @@
 #!/usr/bin/env bash
 
 @test "An empty string" {
-  #skip
-  run bash reverse_string.sh ""
+    #skip
+    run bash reverse_string.sh ""
 
-  [ "$status" -eq 0 ]
-  [ "$output" = "" ]
+    [ "$status" -eq 0 ]
+    [ "$output" = "" ]
 }
 
 @test "A word" {
-  #skip
-  run bash reverse_string.sh "robot"
-  echo "status = ${status}"
-  echo "output = ${output}"
-  [ "$status" -eq 0 ]
-  [ "$output" = "tobor" ]
+    #skip
+    run bash reverse_string.sh "robot"
+    echo "status = ${status}"
+    echo "output = ${output}"
+    [ "$status" -eq 0 ]
+    [ "$output" = "tobor" ]
 }
 
 @test "A capitalised word" {
-  #skip
-  run bash reverse_string.sh "Ramen"
+    #skip
+    run bash reverse_string.sh "Ramen"
 
-  [ "$status" -eq 0 ]
-  [ "$output" = "nemaR" ]
+    [ "$status" -eq 0 ]
+    [ "$output" = "nemaR" ]
 }
 
 @test "A sentence with punctuation" {
-  #skip
-  run bash reverse_string.sh "I'm hungry!"
+    #skip
+    run bash reverse_string.sh "I'm hungry!"
 
-  [ "$status" -eq 0 ]
-  [ "$output" = "!yrgnuh m'I" ]
+    [ "$status" -eq 0 ]
+    [ "$output" = "!yrgnuh m'I" ]
 }
 
 @test "A palindrome" {
-  #skip
-  run bash reverse_string.sh "racecar"
+    #skip
+    run bash reverse_string.sh "racecar"
 
-  [ "$status" -eq 0 ]
-  [ "$output" = "racecar" ]
+    [ "$status" -eq 0 ]
+    [ "$output" = "racecar" ]
 }

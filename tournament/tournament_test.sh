@@ -14,12 +14,12 @@ teardown() { rm -f "$INPUT_FILE"; }
 
     input=$( cat <<INPUT
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -38,7 +38,7 @@ Team                           | MP |  W |  D |  L |  P
 Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3
 Blithering Badgers             |  1 |  0 |  0 |  1 |  0
 EXPECTED
-)
+    )
 
     run bash tournament.sh "$INPUT_FILE"
     [[ $status -eq 0 ]]
@@ -51,14 +51,14 @@ EXPECTED
     input=$( cat <<INPUT
 Blithering Badgers;Allegoric Alaskans;loss
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3
 Blithering Badgers             |  1 |  0 |  0 |  1 |  0
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -71,14 +71,14 @@ EXPECTED
     input=$( cat <<INPUT
 Blithering Badgers;Allegoric Alaskans;win
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 Blithering Badgers             |  1 |  1 |  0 |  0 |  3
 Allegoric Alaskans             |  1 |  0 |  0 |  1 |  0
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -91,14 +91,14 @@ EXPECTED
     input=$( cat <<INPUT
 Allegoric Alaskans;Blithering Badgers;draw
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 Allegoric Alaskans             |  1 |  0 |  1 |  0 |  1
 Blithering Badgers             |  1 |  0 |  1 |  0 |  1
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -112,14 +112,14 @@ EXPECTED
 Allegoric Alaskans;Blithering Badgers;win
 Allegoric Alaskans;Blithering Badgers;win
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 Allegoric Alaskans             |  2 |  2 |  0 |  0 |  6
 Blithering Badgers             |  2 |  0 |  0 |  2 |  0
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -133,14 +133,14 @@ EXPECTED
 Allegoric Alaskans;Blithering Badgers;loss
 Allegoric Alaskans;Blithering Badgers;win
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
 Allegoric Alaskans             |  2 |  1 |  0 |  1 |  3
 Blithering Badgers             |  2 |  1 |  0 |  1 |  3
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -155,7 +155,7 @@ Allegoric Alaskans;Blithering Badgers;win
 Blithering Badgers;Courageous Californians;win
 Courageous Californians;Allegoric Alaskans;loss
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
@@ -163,7 +163,7 @@ Allegoric Alaskans             |  2 |  2 |  0 |  0 |  6
 Blithering Badgers             |  2 |  1 |  0 |  1 |  3
 Courageous Californians        |  2 |  0 |  0 |  2 |  0
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -181,7 +181,7 @@ Courageous Californians;Blithering Badgers;loss
 Blithering Badgers;Devastating Donkeys;loss
 Allegoric Alaskans;Courageous Californians;win
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
@@ -190,7 +190,7 @@ Allegoric Alaskans             |  3 |  2 |  0 |  1 |  6
 Blithering Badgers             |  3 |  1 |  0 |  2 |  3
 Courageous Californians        |  3 |  0 |  1 |  2 |  1
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]
@@ -214,7 +214,7 @@ Blithering Badgers             |  2 |  1 |  1 |  0 |  4
 Courageous Californians        |  2 |  0 |  1 |  1 |  1
 Devastating Donkeys            |  1 |  0 |  0 |  1 |  0
 EXPECTED
-)
+    )
 
     run bash tournament.sh "$INPUT_FILE"
     [[ $status -eq 0 ]]
@@ -232,7 +232,7 @@ Courageous Californians;Blithering Badgers;win
 Blithering Badgers;Devastating Donkeys;draw
 Allegoric Alaskans;Courageous Californians;draw
 INPUT
-)
+    )
 
     expected=$( cat <<EXPECTED
 Team                           | MP |  W |  D |  L |  P
@@ -241,7 +241,7 @@ Courageous Californians        |  3 |  2 |  1 |  0 |  7
 Blithering Badgers             |  3 |  0 |  1 |  2 |  1
 Devastating Donkeys            |  3 |  0 |  1 |  2 |  1
 EXPECTED
-)
+    )
 
     run bash tournament.sh  <<< "$input"
     [[ $status -eq 0 ]]

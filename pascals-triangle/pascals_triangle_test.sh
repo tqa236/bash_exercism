@@ -14,7 +14,7 @@
     expected=$(cat <<END
 1
 END
-)
+    )
     run bash pascals_triangle.sh 1
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -26,7 +26,7 @@ END
  1
 1 1
 END
-)
+    )
     run bash pascals_triangle.sh 2
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -39,7 +39,7 @@ END
  1 1
 1 2 1
 END
-)
+    )
     run bash pascals_triangle.sh 3
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -53,7 +53,7 @@ END
  1 2 1
 1 3 3 1
 END
-)
+    )
     run bash pascals_triangle.sh 4
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -68,7 +68,7 @@ END
  1 3 3 1
 1 4 6 4 1
 END
-)
+    )
     run bash pascals_triangle.sh 5
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -84,7 +84,7 @@ END
  1 4 6 4 1
 1 5 10 10 5 1
 END
-)
+    )
     run bash pascals_triangle.sh 6
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -104,7 +104,7 @@ END
  1 8 28 56 70 56 28 8 1
 1 9 36 84 126 126 84 36 9 1
 END
-)
+    )
     run bash pascals_triangle.sh 10
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -135,7 +135,7 @@ END
  1 19 171 969 3876 11628 27132 50388 75582 92378 92378 75582 50388 27132 11628 3876 969 171 19 1
 1 20 190 1140 4845 15504 38760 77520 125970 167960 184756 167960 125970 77520 38760 15504 4845 1140 190 20 1
 END
-)
+    )
     run bash pascals_triangle.sh 21
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]

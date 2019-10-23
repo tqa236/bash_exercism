@@ -21,9 +21,9 @@ main() {
     count="$(echo "${@:2}" | xargs -n1 | sort | uniq -i | wc -l)"
 
     case "$1" in
-        equilateral) (( count == 1 )) && echo "true" && exit 0;;
-        isosceles) (( count <= 2 )) && echo "true" && exit 0;;
-        scalene) (( count == 3 )) && echo "true" && exit 0;;
+        equilateral) (( count == 1 )) && echo "true" && exit 0 ;;
+        isosceles) (( count <= 2 )) && echo "true" && exit 0 ;;
+        scalene) (( count == 3 )) && echo "true" && exit 0 ;;
     esac
 
     echo "false"

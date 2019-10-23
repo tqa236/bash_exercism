@@ -11,10 +11,10 @@
 @test "Recognizes 0" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
 | |
 |_|
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "0" ]]
@@ -23,10 +23,10 @@ INPUT
 @test "Recognizes 1" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-   
+
   |
   |
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "1" ]]
@@ -35,10 +35,10 @@ INPUT
 @test "Unreadable but correctly sized inputs return ?" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-   
+
   _
   |
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "?" ]]
@@ -47,9 +47,9 @@ INPUT
 @test "Input with a number of lines that is not a multiple of four raises an error" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
 | |
-   
+
 INPUT
     [[ $status -eq 1 ]]
     [[ $output == "Number of input lines is not a multiple of four" ]]
@@ -58,10 +58,10 @@ INPUT
 @test "Input with a number of columns that is not a multiple of three raises an error" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-    
+
    |
    |
-    
+
 INPUT
     [[ $status -eq 1 ]]
     [[ $output == "Number of input columns is not a multiple of three" ]]
@@ -70,10 +70,10 @@ INPUT
 @test "Recognizes 110101100" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-       _     _        _  _ 
+       _     _        _  _
   |  || |  || |  |  || || |
   |  ||_|  ||_|  |  ||_||_|
-                           
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "110101100" ]]
@@ -82,10 +82,10 @@ INPUT
 @test "Garbled numbers in a string are replaced with ?" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-       _     _           _ 
+       _     _           _
   |  || |  || |     || || |
   |  | _|  ||_|  |  ||_||_|
-                           
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "11?10?1?0" ]]
@@ -94,10 +94,10 @@ INPUT
 @test "Recognizes 2" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
  _|
-|_ 
-   
+|_
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "2" ]]
@@ -106,10 +106,10 @@ INPUT
 @test "Recognizes 3" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
  _|
  _|
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "3" ]]
@@ -118,10 +118,10 @@ INPUT
 @test "Recognizes 4" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-   
+
 |_|
   |
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "4" ]]
@@ -130,10 +130,10 @@ INPUT
 @test "Recognizes 5" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
-|_ 
+ _
+|_
  _|
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "5" ]]
@@ -142,10 +142,10 @@ INPUT
 @test "Recognizes 6" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
-|_ 
+ _
+|_
 |_|
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "6" ]]
@@ -154,10 +154,10 @@ INPUT
 @test "Recognizes 7" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
   |
   |
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "7" ]]
@@ -166,10 +166,10 @@ INPUT
 @test "Recognizes 8" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
 |_|
 |_|
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "8" ]]
@@ -178,10 +178,10 @@ INPUT
 @test "Recognizes 9" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
- _ 
+ _
 |_|
  _|
-   
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "9" ]]
@@ -190,10 +190,10 @@ INPUT
 @test "Recognizes string of decimal numbers" {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-    _  _     _  _  _  _  _  _ 
+    _  _     _  _  _  _  _  _
   | _| _||_||_ |_   ||_||_|| |
   ||_  _|  | _||_|  ||_| _||_|
-                              
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "1234567890" ]]
@@ -202,18 +202,18 @@ INPUT
 @test "Numbers separated by empty lines are recognized. Lines are joined by commas." {
     [[ $BATS_RUN_SKIPPED = true ]] || skip
     run bash ocr_numbers.sh << INPUT
-    _  _ 
+    _  _
   | _| _|
   ||_  _|
-         
-    _  _ 
-|_||_ |_ 
+
+    _  _
+|_||_ |_
   | _||_|
-         
- _  _  _ 
+
+ _  _  _
   ||_||_|
   ||_| _|
-         
+
 INPUT
     [[ $status -eq 0 ]]
     [[ $output == "123,456,789" ]]

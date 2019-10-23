@@ -88,7 +88,7 @@ END
 
 @test "unordered lists" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
-      cat <<END >"$MD_FILE"
+    cat <<END >"$MD_FILE"
 * Item 1
 * Item 2
 END
@@ -99,7 +99,7 @@ END
 
 @test "With a little bit of everything" {
     [[ $BATS_RUN_SKIPPED == true ]] || skip
-      cat <<END >"$MD_FILE"
+    cat <<END >"$MD_FILE"
 # Header!
 * __Bold Item__
 * _Italic Item_

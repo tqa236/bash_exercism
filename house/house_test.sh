@@ -6,7 +6,7 @@
     run bash house.sh 1 1
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
-}       
+}
 
 @test "verse 2" {
     skip
@@ -14,7 +14,7 @@
 This is the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 2 2
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -27,7 +27,7 @@ This is the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 3 3
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -41,7 +41,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 4 4
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -56,7 +56,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 5 5
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -72,7 +72,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 6 6
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -89,7 +89,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 7 7
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -107,7 +107,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 8 8
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -126,7 +126,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 9 9
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -146,7 +146,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 10 10
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -167,7 +167,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 11 11
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -189,7 +189,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 12 12
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -233,7 +233,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 4 8
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]
@@ -332,7 +332,7 @@ that killed the rat
 that ate the malt
 that lay in the house that Jack built.
 END
-)
+    )
     run bash house.sh 1 12
     [[ $status -eq 0 ]]
     [[ $output == "$expected" ]]

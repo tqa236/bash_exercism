@@ -86,7 +86,7 @@
 
 @test "no factors means an empty sum" {
     [[ $BATS_RUN_SKIPPED == true  ]] || skip
-    run bash sum_of_multiples.sh 10000 
+    run bash sum_of_multiples.sh 10000
     [[ $status -eq 0 ]]
     [[ $output == "0" ]]
 }

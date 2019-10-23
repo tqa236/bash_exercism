@@ -1,47 +1,47 @@
 #!/usr/bin/env bash
 
 @test "Degenerate case with a single 'A' row" {
-  # skip
-  expected="$(cat << EOT
+    # skip
+    expected="$(cat << EOT
 A
 EOT
-)"
-  run bash diamond.sh A
-  [ "$status" -eq 0 ]
-  [ "$output" == "$expected" ]
+    )"
+    run bash diamond.sh A
+    [ "$status" -eq 0 ]
+    [ "$output" == "$expected" ]
 }
 
 @test "Degenerate case with no row containing 3 distinct groups of spaces" {
-  # skip
-  expected="$(cat << EOT
+    # skip
+    expected="$(cat << EOT
  A
 B B
  A
 EOT
-)"
-  run bash diamond.sh B
-  [ "$status" -eq 0 ]
-  [ "$output" == "$expected" ]
+    )"
+    run bash diamond.sh B
+    [ "$status" -eq 0 ]
+    [ "$output" == "$expected" ]
 }
 
 @test "Smallest non-degenerate case with odd diamond side length" {
-  # skip
-  expected="$(cat << EOT
+    # skip
+    expected="$(cat << EOT
   A
  B B
 C   C
  B B
   A
 EOT
-)"
-  run bash diamond.sh C
-  [ "$status" -eq 0 ]
-  [ "$output" == "$expected" ]
+    )"
+    run bash diamond.sh C
+    [ "$status" -eq 0 ]
+    [ "$output" == "$expected" ]
 }
 
 @test "Smallest non-degenerate case with even diamond side length" {
-  # skip
-  expected="$(cat << EOT
+    # skip
+    expected="$(cat << EOT
    A
   B B
  C   C
@@ -50,15 +50,15 @@ D     D
   B B
    A
 EOT
-)"
-  run bash diamond.sh D
-  [ "$status" -eq 0 ]
-  [ "$output" == "$expected" ]
+    )"
+    run bash diamond.sh D
+    [ "$status" -eq 0 ]
+    [ "$output" == "$expected" ]
 }
 
 @test "Largest possible diamond" {
-  # skip
-  expected="$(cat << EOT
+    # skip
+    expected="$(cat << EOT
                          A
                         B B
                        C   C
@@ -111,8 +111,8 @@ Z                                                 Z
                         B B
                          A
 EOT
-)"
-  run bash diamond.sh Z
-  [ "$status" -eq 0 ]
-  [ "$output" == "$expected" ]
+    )"
+    run bash diamond.sh Z
+    [ "$status" -eq 0 ]
+    [ "$output" == "$expected" ]
 }

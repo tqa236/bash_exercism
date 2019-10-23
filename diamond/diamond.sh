@@ -8,7 +8,7 @@ set -o nounset
 # }
 
 ord() {
-  LC_CTYPE=C printf '%d' "'$1"
+    LC_CTYPE=C printf '%d' "'$1"
 }
 
 make_row(){

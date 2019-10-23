@@ -7,7 +7,7 @@ main() {
 
     number_length=${#1}
     (( $2 >  number_length )) &&
-        echo "slice length cannot be greater than series length" && exit 1
+    echo "slice length cannot be greater than series length" && exit 1
     (( $2 == 0 )) && echo "slice length cannot be zero" && exit 1
     (( $2 < 0 )) && echo "slice length cannot be negative" && exit 1
 
