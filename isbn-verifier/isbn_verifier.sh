@@ -4,7 +4,7 @@ set -o nounset
 
 main() {
     digits="${1//[^0-9]/}"
-    ([ ${#digits} != 9 ] && [ ${#digits} != 10 ]) && echo "false" && exit 0
+    { [ ${#digits} != 9 ] && [ ${#digits} != 10 ]; } && echo "false" && exit 0
 
     check=0
     if [ ${#digits} == 9 ]; then

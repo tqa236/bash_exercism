@@ -4,7 +4,7 @@ set -o nounset
 
 main() {
     IFS=$' \t\n,-'
-    acronym=(${1^^})
+    read -r -a acronym <<< "${1^^}"
     for i in "${acronym[@]}"
     do
         echo -n "${i:0:1}"

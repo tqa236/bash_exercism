@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 
 main() {
-    if [ ! -z "${1//[ACGT]/}" ]; then
+    if [ -n "${1//[ACGT]/}" ]; then
         echo "Invalid nucleotide in strand"
         exit 1
     fi
