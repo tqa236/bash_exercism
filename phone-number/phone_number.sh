@@ -5,10 +5,12 @@ set -o nounset
 main() {
     input="${1//[^0-9]/}"
 
-    ( (( ${#input} < 10 )) || (( ${#input} > 11 )) ) || \
-        ( (( ${#input} == 11 )) && ((${input: 0:1} > 1 )) ) || \
-        ( (( ${input: -10:1} < 2 )) || (( ${input: -7:1} < 2 )) ) && \
+    if (( ${#input} < 10 || ${#input} > 11 )) ||
+        (( ${#input} == 11 && ${input: 0:1} > 1 )) ||
+        (( ${input: -10:1} < 2 || ${input: -7:1} < 2 ));
+    then
         echo "Invalid number.  [1]NXX-NXX-XXXX N=2-9, X=0-9" && exit 1
+    fi
 
     echo "${input: -10}"
 }
