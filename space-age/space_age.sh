@@ -37,7 +37,7 @@ main() {
             echo "not a planet" && exit 1
             ;;
     esac
-
+    
     echo "scale=3;$2/(31557600 * $earth_year)" | bc | xargs printf "%.*f\\n" 2
 }
 
