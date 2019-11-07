@@ -5,9 +5,6 @@ set -o nounset
 LC_NUMERIC="en_US.UTF-8"
 
 main() {
-    if [ "$1" = "Earth" ]; then
-        earth_year=1
-    fi
     case "$1" in
         "Earth")
             earth_year=1
@@ -37,8 +34,8 @@ main() {
             echo "not a planet" && exit 1
             ;;
     esac
-    
-    echo "scale=3;$2/(31557600 * $earth_year)" | bc | xargs printf "%.*f\\n" 2
+
+    printf "%.2f\n" "$(echo "scale=3;$2/(31557600 * $earth_year)" | bc)"
 }
 
 main "$@"
