@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 
 check_num(){
-    if [[ ! $1 =~ ^[+-]?[0-9]+(.[0-9]*)?$ ]]; then
+    if [[ ! $1 =~ ^[+-]?[0-9]+([.][0-9]*)?$ ]]; then
         echo "Usage: ./darts.sh <x> <y>"; exit 1
     fi
 }
