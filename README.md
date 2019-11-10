@@ -12,3 +12,7 @@ In order to print the output, insert these lines to the test:
 echo "status = ${status}"
 echo "output = ${output}"
 ```
+
+TODO:
+
+-   Integrate `kcov` with `bats` in order to use Codecov
