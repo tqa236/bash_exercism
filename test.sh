@@ -10,6 +10,7 @@ for path in */; do
     solution="${file_name}.sh"
     test="${file_name}_test.sh"
     touch "$solution"
-    BATS_RUN_SKIPPED=true bats "$test"
+    # BATS_RUN_SKIPPED=true bats "$test"
+    bats "$test"
     cd ..
 done
