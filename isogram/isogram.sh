@@ -2,12 +2,14 @@
 set -o errexit
 set -o nounset
 
+LC_ALL=en_US.utf8
+
 main() {
+    local input
+    local count
     input="${1//[^a-zA-Z]/}"
     count="$(echo "$input" | grep -o . | sort | uniq -i | wc -l)"
-    if (( count == ${#input} )); then echo "true"
-    else echo "false"
-    fi
+    (( count == ${#input} )) && echo "true" || echo "false"
 }
 
 main "$@"
