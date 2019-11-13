@@ -3,41 +3,31 @@ set -o errexit
 set -o nounset
 
 is_valid_triangle(){
-    min_num="$(echo "${@}" | xargs -n1 | sort | head -1)"
-    max_num="$(echo "${@}" | xargs -n1 | sort | tail -1)"
-    sum_num="$(echo "$1 + $2 + $3" | bc)"
-
-    if (( $(echo "$min_num <= 0" |bc -l) )); then
-        echo "false"
-        exit 0
-    fi
-
-    if (( $(echo "$sum_num <= 2 * $max_num" |bc -l) )); then
-        echo "false"
-        exit 0
+    { read -r a; read -r b; read -r c; } < <(printf "%s\n" "$@" | sort -g)
+    if ! (( $(echo "$a > 0 && $a + $b > $c" | bc -l) )); then
+        echo "false" && exit 0
     fi
 }
 
 main() {
     is_valid_triangle "${@:2}"
-    
+
     type="$1"
     count="$(echo "${@:2}" | xargs -n1 | sort | uniq -i | wc -l)"
 
-    if [ "$type" == "equilateral" ]; then
-        if (( count == 1 )); then echo "true"
-        else echo "false"
-        fi
+    if [ "$type" == "equilateral" ]
+    then
+        ((count == 1)) && echo true || echo false
     fi
-    if [ "$type" == "isosceles" ]; then
-        if (( count <= 2 )); then echo "true"
-        else echo "false"
-        fi
+
+    if [ "$type" == "isosceles" ]
+    then
+        ((count <= 2)) && echo true || echo false
     fi
-    if [ "$type" == "scalene" ]; then
-        if (( count == 3 )); then echo "true"
-        else echo "false"
-        fi
+
+    if [ "$type" == "scalene" ]
+    then
+        ((count == 3)) && echo true || echo false
     fi
 }
 

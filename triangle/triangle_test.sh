@@ -146,3 +146,10 @@
   [[ $status -eq 0 ]]
   [[ $output == "true" ]]
 }
+
+@test "test sort" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash triangle.sh scalene 1 10 2
+  [[ $status -eq 0 ]]
+  [[ $output == "false" ]]
+}
