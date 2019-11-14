@@ -3,7 +3,6 @@ set -o errexit
 set -o nounset
 
 main() {
-    func=$1
     square_of_sum=0
     sum_of_squares=0
     for ((i=0;i<=$2;i++))
@@ -12,15 +11,9 @@ main() {
         sum_of_squares=$((sum_of_squares + i**2))
     done
     square_of_sum=$((square_of_sum**2))
-    if [[ "$func" == "square_of_sum" ]]; then
-        echo "$square_of_sum"
-    fi
-    if [[ "$func" == "sum_of_squares" ]]; then
-        echo "$sum_of_squares"
-    fi
-    if [[ "$func" == "difference" ]]; then
-        echo "$((square_of_sum - sum_of_squares))"
-    fi
+    [[ "$1" == "square_of_sum" ]] && echo "$square_of_sum" && exit 0
+    [[ "$1" == "sum_of_squares" ]] && echo "$sum_of_squares" && exit 0
+    [[ "$1" == "difference" ]] && echo "$((square_of_sum - sum_of_squares))"
 }
 
 main "$@"
