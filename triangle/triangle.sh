@@ -9,7 +9,7 @@ is_valid_triangle(){
 
 main() {
     ! is_valid_triangle "${@:2}" && echo "false" && exit 0
-    
+
     type="$1"
     count="$(echo "${@:2}" | xargs -n1 | sort | uniq -i | wc -l)"
 

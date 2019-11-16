@@ -6,9 +6,10 @@ DNA='CGTA'
 RNA='GCAU'
 
 main() {
-    rna="${1:-}"
-    [[ -n "${rna//[ACGT]/}" ]] && echo "Invalid nucleotide detected." && exit 1
-    tr "$DNA" "$RNA"<<<"$rna"
+    local dna
+    dna="${1:-}"
+    [[ $dna == *[^$DNA]* ]] && echo "Invalid nucleotide detected." && exit 1
+    tr "$DNA" "$RNA"<<<"$dna"
 }
 
 main "$@"
