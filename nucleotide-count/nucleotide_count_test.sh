@@ -7,6 +7,8 @@
 @test "empty strand" {
   #[[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash nucleotide_count.sh ""
+  echo "status = ${status}"
+  echo "output = ${output}"
   [[ $status -eq 0 ]]
   [[ $output == $'A: 0\nC: 0\nG: 0\nT: 0' ]]
 }

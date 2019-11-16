@@ -16,3 +16,5 @@ echo "output = ${output}"
 TODO:
 
 -   Integrate `kcov` with `bats` in order to use Codecov
+
+Waiting: Collatz Conjecture, Word Count
