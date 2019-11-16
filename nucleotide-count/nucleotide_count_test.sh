@@ -21,6 +21,8 @@
 @test "strand with repeated nucleotide" {
   [[ $BATS_RUN_SKIPPED == true  ]] || skip
   run bash nucleotide_count.sh "GGGGGGG"
+  echo "status = ${status}"
+  echo "output = ${output}"
   [[ $status -eq 0 ]]
   [[ $output == $'A: 0\nC: 0\nG: 7\nT: 0' ]]
 }
@@ -38,4 +40,3 @@
   [[ $status -eq 1 ]]
   [[ $output == "Invalid nucleotide in strand" ]]
 }
-

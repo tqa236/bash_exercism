@@ -7,12 +7,7 @@ RNA='GCAU'
 
 main() {
     rna="${1:-}"
-
-    if [ -n "${rna//[ACGT]/}" ]; then
-        echo "Invalid nucleotide detected."
-        exit 1
-    fi
-
+    [[ -n "${rna//[ACGT]/}" ]] && echo "Invalid nucleotide detected." && exit 1
     tr "$DNA" "$RNA"<<<"$rna"
 }
 
