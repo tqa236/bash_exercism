@@ -5,6 +5,7 @@ for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
     [[ "${dirname}" != *"markdown"* ]] || continue
+    [[ "${dirname}" = *"acronym"* ]] || continue
     [ "${dirname}" != "coverage" ] || continue # Use for covedev
     cd "$dirname" || exit
     echo "$dirname"
@@ -14,12 +15,5 @@ for path in */; do
     test="${file_name}_test.sh"
     touch "$solution"
     kcov --include-path="./" --bash-method=DEBUG "../coverage" bats "$test"
-    # if grep -q "BATS_RUN_SKIPPED" "$test"; then
-    #     # echo True
-    # else
-    #     # echo False
-    #     bats "$test"
-    # fi
-
     cd ..
 done
