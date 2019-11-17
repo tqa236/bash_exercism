@@ -4,7 +4,7 @@ export BATS_RUN_SKIPPED=true
 for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
-    [[ "${dirname}" = *"acronym"* ]] || continue
+    [[ "${dirname}" != *"markdown"* ]] || continue
     [ "${dirname}" != "coverage" ] || continue # Use for covedev
     cd "$dirname" || exit
     echo "$dirname"
@@ -13,7 +13,13 @@ for path in */; do
     solution="${file_name}.sh"
     test="${file_name}_test.sh"
     touch "$solution"
-    kcov --include-path="./" "../coverage" bats "$test"
-    # bats "$test"
+    kcov --include-path="./" --bash-method=DEBUG "../coverage" bats "$test"
+    # if grep -q "BATS_RUN_SKIPPED" "$test"; then
+    #     # echo True
+    # else
+    #     # echo False
+    #     bats "$test"
+    # fi
+
     cd ..
 done

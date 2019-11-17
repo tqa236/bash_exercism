@@ -3,6 +3,7 @@ set -o errexit
 set -o nounset
 
 main() {
+    local IFS
     IFS=$' \t\n,-'
     read -r -a acronym <<< "${1^^}"
     for i in "${acronym[@]}"
