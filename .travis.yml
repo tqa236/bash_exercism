@@ -31,7 +31,7 @@ install:
 - rm -rf kcov-master
 - mkdir -p coverage
 script:
-- kcov coverage test.sh
+- kcov $PWD/coverage test.sh
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
