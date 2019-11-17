@@ -5,7 +5,7 @@ for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
     [[ "${dirname}" != *"markdown"* ]] || continue
-    [[ "${dirname}" = *"acronym"* ]] || continue
+    ([[ "${dirname}" = *"acronym"* ]] || [[ "${dirname}" = *"anagram"* ]]) || continue
     [ "${dirname}" != "coverage" ] || continue # Use for covedev
     cd "$dirname" || exit
     echo "$dirname"
