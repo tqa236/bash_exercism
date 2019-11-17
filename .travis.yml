@@ -32,7 +32,7 @@ install:
 - rm -rf kcov-master
 - mkdir -p coverage
 script:
-- kcov "$PWD/coverage" ./test.sh
+- kcov --bash-method=DEBUG "$PWD/coverage" ./test.sh
 # - ./test.sh
 
 after_success:
