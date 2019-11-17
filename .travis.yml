@@ -10,6 +10,10 @@ addons:
       - libdw-dev
       - cmake
 
+cache:
+  directories:
+  - "${HOME}/kcov/"
+
 env:
 - PATH=${PATH}:${HOME}/kcov/bin
 
