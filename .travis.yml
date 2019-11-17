@@ -1,6 +1,7 @@
+dist: bionic
 language: generic
 
-sudo: required
+# sudo: required
 
 addons:
   apt:
