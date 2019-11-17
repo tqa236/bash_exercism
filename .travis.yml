@@ -10,6 +10,9 @@ addons:
       - libdw-dev
       - cmake
 
+env:
+- PATH=${PATH}:${HOME}/kcov/bin
+
 before_install:
 - wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz
 install:
