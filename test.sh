@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+export BATS_RUN_SKIPPED=true
+
 for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
@@ -10,7 +12,7 @@ for path in */; do
     solution="${file_name}.sh"
     test="${file_name}_test.sh"
     touch "$solution"
-    BATS_RUN_SKIPPED=true kcov "../coverage" "$test"
+    kcov --include-path="./" "../coverage" "$test"
     # bats "$test"
     cd ..
 done
