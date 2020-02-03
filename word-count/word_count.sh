@@ -13,7 +13,7 @@ print_words(){
 }
 
 main() {
-    clean_input=${1//[^A-Za-z0-9\'\\]/ }
+    clean_input=${1//[^[:alnum:]\'\\]/ }
     print_words "${clean_input,,}" | sort | uniq -c | awk '{ print $2 ": " $1}'
 }
 
