@@ -15,7 +15,8 @@ for path in */; do
     test="${file_name}_test.sh"
     touch "$solution"
     # bats "$test"
-    kcov --include-path="./" "../coverage" bats "$test"
+    mkdir coverage
+    kcov --include-path="./" "./coverage" bats "$test"
     # kcov --include-path="./" --bash-method=DEBUG "../coverage" bats "$test"
     cd ..
 done
