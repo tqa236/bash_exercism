@@ -4,9 +4,9 @@ export BATS_RUN_SKIPPED=true
 for path in */; do
     [ -d "${path}" ] || continue # if not a directory, skip
     dirname="$(basename "${path}")"
-    [[ "${dirname}" != *"markdown"* ]] || continue
-    ([[ "${dirname}" = *"acronym"* ]] || [[ "${dirname}" = *"affine-cipher"* ]] || [[ "${dirname}" = *"atbash-cipher"* ]] ) || continue
-    [ "${dirname}" != "coverage" ] || continue # Use for covedev
+    # [[ "${dirname}" != *"markdown"* ]] || continue
+    # ([[ "${dirname}" = *"acronym"* ]] || [[ "${dirname}" = *"affine-cipher"* ]] || [[ "${dirname}" = *"atbash-cipher"* ]] ) || continue
+    # [ "${dirname}" != "coverage" ] || continue # Use for covedev
     cd "$dirname" || exit
     echo "$dirname"
     file_name=${path::-1}
