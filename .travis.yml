@@ -1,8 +1,6 @@
 dist: bionic
 language: generic
 
-# sudo: required
-
 addons:
   apt:
     packages:
@@ -32,7 +30,6 @@ install:
 - rm -rf kcov-master
 - mkdir -p coverage
 script:
-# - kcov --bash-method=DEBUG "$PWD/coverage" ./test.sh
 - ./test.sh
 
 after_success:
