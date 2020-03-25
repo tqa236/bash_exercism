@@ -1,32 +1,43 @@
 #!/usr/bin/env bash
 
-@test "correct arguments" {
-    #skip
-    run bash error_handling.sh Alice
+# local version: 0.0.1
 
-    [ "$status" -eq 0 ]
-    [ "$output" = "Hello, Alice" ]
+@test "correct arguments" {
+  #[[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash error_handling.sh Alice
+
+  (( status == 0 ))
+  [[ $output = "Hello, Alice" ]]
 }
 
 @test "one long argument" {
-    #skip
-    run bash error_handling.sh "Alice and Bob"
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash error_handling.sh "Alice and Bob"
 
-    [ "$status" -eq 0 ]
-    [ "$output" = "Hello, Alice and Bob" ]
+  (( status == 0 ))
+  [[ $output = "Hello, Alice and Bob" ]]
 }
 
 @test "incorrect arguments" {
-    #skip
-    run bash error_handling.sh Alice Bob
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash error_handling.sh Alice Bob
 
-    [ "$status" -ne 0 ]
+  (( status == 1 ))
+  [[ $output = "Usage: error_handling.sh <person>" ]]
 }
 
 @test "print usage banner with no value given" {
-    #skip
-    run bash error_handling.sh
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash error_handling.sh
 
-    [ "$status" -eq 1 ]
-    [ "$output" = "Usage: ./error_handling <greetee>" ]
+  (( status == 1 ))
+  [[ $output = "Usage: error_handling.sh <person>" ]]
+}
+
+@test "empty argument" {
+  [[ $BATS_RUN_SKIPPED == true  ]] || skip
+  run bash error_handling.sh ""
+
+  (( status == 0 ))
+  [[ $output = "Hello, " ]]
 }

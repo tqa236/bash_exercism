@@ -3,13 +3,13 @@ set -o errexit
 set -o nounset
 
 chr() {
-    (( $1 != 256 )) || return 1
-    # shellcheck disable=SC2059
-    printf "\\$(printf '%03o' "$1")"
+  (( $1 != 256 )) || return 1
+  # shellcheck disable=SC2059
+  printf "\\$(printf '%03o' "$1")"
 }
 
 ord() {
-    LC_CTYPE=C printf '%d' "'$1"
+  LC_CTYPE=C printf '%d' "'$1"
 }
 
 main() {
@@ -33,7 +33,7 @@ main() {
             encoded_text+=" "
         fi
     done
-
+    
     echo "$encoded_text"
 }
 

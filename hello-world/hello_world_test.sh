@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-@test "Say Hi!" {
-    run bash hello_world.sh
+# local version: 1.1.0.0
 
-    [ "$status" -eq 0 ]
-    [ "$output" = "Hello, World!" ]
+@test "Say Hi!" {
+  run bash hello_world.sh
+
+  (( status == 0 ))
+  [[ $output = "Hello, World!" ]]
 }
