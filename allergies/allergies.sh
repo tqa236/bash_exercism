@@ -17,16 +17,13 @@ allergic_to () {
 }
 
 main() {
-    if [[ $2 = "allergic_to" ]]; then
-        allergic_to "$1" "${allergies[$3]}"
-    fi
+    [[ $2 = "allergic_to" ]] && allergic_to "$1" "${allergies[$3]}"
 
     if [[ $2 = "list" ]]; then
         all_allergies=()
         for allergy in "${allergies_list[@]}"; do
-            if [[ $( allergic_to "$1" "${allergies[$allergy]}" ) == "true" ]]; then
-                all_allergies+=("$allergy")
-            fi
+            # shellcheck disable=SC2091
+            $(allergic_to "$1" "${allergies[$allergy]}" ) && all_allergies+=("$allergy")
         done
         echo "${all_allergies[@]}"
     fi
