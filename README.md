@@ -16,9 +16,8 @@ echo "output = ${output}"
 TODO:
 
 -   Integrate `kcov` with `bats` in order to use Codecov
+-   Remove redundant `.test` files
 
 Notice:
 
 -   Disable the test for big prime in nth_prime
-
-Waiting: None

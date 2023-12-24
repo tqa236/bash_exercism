@@ -4,10 +4,10 @@ set -o nounset
 
 main() {
   if [ "$#" -eq 0 ]; then
-    echo "Usage: ./error_handling <greetee>"
+    echo "Usage: error_handling.sh <person>"
     exit 1
   elif [ "$#" -ne 1 ]; then
-    echo "Incorrect arguments"
+    echo "Usage: error_handling.sh <person>"
     exit 1
   fi
   echo "Hello, $1"
