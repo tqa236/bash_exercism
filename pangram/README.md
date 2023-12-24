@@ -1,55 +1,52 @@
 # Pangram
 
-Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma,
-"every letter") is a sentence using every letter of the alphabet at least once.
+Welcome to Pangram on Exercism's Bash Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Introduction
+
+You work for a company that sells fonts through their website.
+They'd like to show a different sentence each time someone views a font on their website.
+To give a comprehensive sense of the font, the random sentences should use **all** the letters in the English alphabet.
+
+They're running a competition to get suggestions for sentences that they can use.
+You're in charge of checking the submissions to see if they are valid.
+
+~~~~exercism/note
+Pangram comes from Greek, παν γράμμα, pan gramma, which means "every letter".
+
 The best known English pangram is:
+
 > The quick brown fox jumps over the lazy dog.
+~~~~
 
-The alphabet used consists of ASCII letters `a` to `z`, inclusive, and is case
-insensitive. Input will not contain non-ASCII symbols.
+## Instructions
 
+Your task is to figure out if a sentence is a pangram.
 
-Run the tests with:
+A pangram is a sentence using every letter of the alphabet at least once.
+It is case insensitive, so it doesn't matter if a letter is lower-case (e.g. `k`) or upper-case (e.g. `K`).
 
-```bash
-bats pangram_test.sh
-```
-
-After the first test(s) pass, continue by commenting out or removing the
-`[[ $BATS_RUN_SKIPPED == true ]] || skip` 
-annotations prepending other tests.
-
-To run all tests, including the ones with `skip` annotations, run:
-
-```bash
-BATS_RUN_SKIPPED=true bats pangram_test.sh
-```
+For this exercise, a sentence is a pangram if it contains each of the 26 letters in the English alphabet.
 
 ## Source
 
-Wikipedia [https://en.wikipedia.org/wiki/Pangram](https://en.wikipedia.org/wiki/Pangram)
+### Created by
 
+- @jaggededgedjustice
 
-## External utilities
-`Bash` is a language to write "scripts" -- programs that can call
-external tools, such as
-[`sed`](https://www.gnu.org/software/sed/),
-[`awk`](https://www.gnu.org/software/gawk/),
-[`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html)
-and even programs written in other programming languages, 
-like [`Python`](https://www.python.org/).
-This track does not restrict the usage of these utilities, and as long
-as your solution is portable between systems and does not require
-installation of third party applications, feel free to use them to solve
-the exercise.
+### Contributed to by
 
-For an extra challenge, if you would like to have a better understanding
-of the language, try to re-implement the solution in pure `Bash`,
-without using any external tools. Note that there are some types of
-problems that bash cannot solve, such as performing floating point
-arithmetic and manipulating dates: for those, you must call out to an
-external tool.
+- @bkhl
+- @budmc29
+- @glennj
+- @guygastineau
+- @IsaacG
+- @kotp
+- @sjwarner-bp
+- @Smarticles101
+- @ZapAnton
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others
-have completed the exercise.
+### Based on
+
+Wikipedia - https://en.wikipedia.org/wiki/Pangram

@@ -1,82 +1,91 @@
 # Gigasecond
 
-Given a moment, determine the moment that would be after a gigasecond
-has passed.
+Welcome to Gigasecond on Exercism's Bash Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
 
-A gigasecond is 10^9 (1,000,000,000) seconds.
+## Introduction
 
-## Test-Driven Development
+The way we measure time is kind of messy.
+We have 60 seconds in a minute, and 60 minutes in an hour.
+This comes from ancient Babylon, where they used 60 as the basis for their number system.
+We have 24 hours in a day, 7 days in a week, and how many days in a month?
+Well, for days in a month it depends not only on which month it is, but also on what type of calendar is used in the country you live in.
 
-As programmers mature, they eventually want to test their code.
+What if, instead, we only use seconds to express time intervals?
+Then we can use metric system prefixes for writing large numbers of seconds in more easily comprehensible quantities.
 
-Here at Exercism we simulate [Test-Driven
-Development](http://en.wikipedia.org/wiki/Test-driven_development) (TDD), where
-you write your tests before writing any functionality. The simulation comes in
-the form of a pre-written test suite, which will signal that you have solved
-the problem.
+- A food recipe might explain that you need to let the brownies cook in the oven for two kiloseconds (that's two thousand seconds).
+- Perhaps you and your family would travel to somewhere exotic for two megaseconds (that's two million seconds).
+- And if you and your spouse were married for _a thousand million_ seconds, you would celebrate your one gigasecond anniversary.
 
-It will also provide you with a safety net to explore other solutions without
-breaking the functionality.
+~~~~exercism/note
+If we ever colonize Mars or some other planet, measuring time is going to get even messier.
+If someone says "year" do they mean a year on Earth or a year on Mars?
 
-### A typical TDD workflow on Exercism:
+The idea for this exercise came from the science fiction novel ["A Deepness in the Sky"][vinge-novel] by author Vernor Vinge.
+In it the author uses the metric system as the basis for time measurements.
 
-1. Run the test file and pick one test that's failing.
-2. Write some code to fix the test you picked.
-3. Re-run the tests to confirm the test is now passing.
-4. Repeat from step 1.
-5. Submit your solution (`exercism submit /path/to/file`)
+[vinge-novel]: https://www.tor.com/2017/08/03/science-fiction-with-something-for-everyone-a-deepness-in-the-sky-by-vernor-vinge/
+~~~~
 
 ## Instructions
 
-Submissions are encouraged to be general, within reason. Having said that, it's
-also important not to over-engineer a solution.
+Your task is to determine the date and time one gigasecond after a certain date.
 
-It's important to remember that the goal is to make code as expressive and
-readable as we can.
+A gigasecond is one thousand million seconds.
+That is a one with nine zeros after it.
 
+If you were born on _January 24th, 2015 at 22:00 (10:00:00pm)_, then you would be a gigasecond old on _October 2nd, 2046 at 23:46:40 (11:46:40pm)_.
 
+## How to solve with bash
 
-Run the tests with:
+`bash` does not have any builtin ways to **parse** datetime strings.
+This exercise requires you to call out to an external utility.
+
+* The GNU `date` command's `-d` option can parse [a wide variety of formats][gnu-date].
+* For Mac users, see the [BSD `date` command][bsd-date] and its `-f` option.
+* Perl is widely available, and its [`Time::Piece` module][time-piece] can be used to parse timestamps.
+
+bash can **format** dates without any external tools.
+Given an integer time value (seconds since the epoch), [the `printf` `%()T` formatter][bash-printf] can apply "strftime"-style formatting.
 
 ```bash
-bats gigasecond_test.sh
+epoch=1234567890
+
+printf '%(%Y-%m-%d %H:%M:%S)T\n' "$epoch"
+# ==> 2009-02-13 18:31:30
+
+# bash uses the `TZ` environment variable for the timezone.
+
+TZ=Asia/Kolkata printf '%(%Y-%m-%d %H:%M:%S)T\n' "$epoch"
+# ==> 2009-02-14 05:01:30
 ```
 
-After the first test(s) pass, continue by commenting out or removing the
-`[[ $BATS_RUN_SKIPPED == true ]] || skip` 
-annotations prepending other tests.
-
-To run all tests, including the ones with `skip` annotations, run:
-
-```bash
-BATS_RUN_SKIPPED=true bats gigasecond_test.sh
-```
+[gnu-date]: https://www.gnu.org/software/coreutils/manual/html_node/Date-input-formats.html#Date-input-formats
+[bsd-date]: https://manpage.me/index.cgi?apropos=0&q=date&sektion=0&manpath=FreeBSD+12-CURRENT+and+Ports&arch=default&format=html
+[time-piece]: https://perldoc.pl/Time::Piece
+[bash-printf]: https://www.gnu.org/software/bash/manual/bash.html#index-printf
 
 ## Source
 
-Chapter 9 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=09](http://pine.fm/LearnToProgram/?Chapter=09)
+### Created by
 
+- @zwebb
 
-## External utilities
-`Bash` is a language to write "scripts" -- programs that can call
-external tools, such as
-[`sed`](https://www.gnu.org/software/sed/),
-[`awk`](https://www.gnu.org/software/gawk/),
-[`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html)
-and even programs written in other programming languages, 
-like [`Python`](https://www.python.org/).
-This track does not restrict the usage of these utilities, and as long
-as your solution is portable between systems and does not require
-installation of third party applications, feel free to use them to solve
-the exercise.
+### Contributed to by
 
-For an extra challenge, if you would like to have a better understanding
-of the language, try to re-implement the solution in pure `Bash`,
-without using any external tools. Note that there are some types of
-problems that bash cannot solve, such as performing floating point
-arithmetic and manipulating dates: for those, you must call out to an
-external tool.
+- @bkhl
+- @budmc29
+- @glennj
+- @guygastineau
+- @IsaacG
+- @kotp
+- @kytrinyx
+- @platinumthinker
+- @sjwarner-bp
+- @Smarticles101
+- @ZapAnton
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others
-have completed the exercise.
+### Based on
+
+Chapter 9 in Chris Pine's online Learn to Program tutorial. - https://pine.fm/LearnToProgram/?Chapter=09
