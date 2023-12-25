@@ -10,6 +10,6 @@ for path in */; do
     test="${file_name}_test.sh"
     command="exercism download --track=bash --exercise=${file_name} --force"
     rm $test
-    exercism download --track=bash --exercise="${file_name}" --force    
+    # exercism download --track=bash --exercise="${file_name}" --force    
     cd ..
 done
