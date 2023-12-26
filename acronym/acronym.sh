@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 set -o errexit
 set -o nounset
+set -f     
 
 main() {
-    IFS=$' \t\n,-'
+
+    local IFS=" -"
     acronym=(${1^^})
-    for i in "${acronym[@]}"
+    
+    for word in "${acronym[@]}"
     do
-        echo -n "${i:0:1}"
+        word=${word//[[:punct:]]/}
+        echo -n "${word:0:1}"
     done
 }
 
