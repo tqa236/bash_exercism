@@ -2,8 +2,6 @@
 set -o errexit
 set -o nounset
 
-LC_NUMERIC="en_US.UTF-8"
-
 main() {
     case "$1" in
         "Earth")
