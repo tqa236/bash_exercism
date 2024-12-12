@@ -8,7 +8,7 @@ print_words(){
         word=${word#\'}
         word=${word%\'}
         word=${word//\\n/}
-        echo "$word"
+        [ -n "$word" ] && echo "$word"
     done
 }
 
