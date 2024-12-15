@@ -1,75 +1,78 @@
 # Secret Handshake
 
-> There are 10 types of people in the world: Those who understand
-> binary, and those who don't.
+Welcome to Secret Handshake on Exercism's Bash Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
 
-You and your fellow cohort of those in the "know" when it comes to
-binary decide to come up with a secret "handshake".
+## Introduction
 
-```text
-1 = wink
-10 = double blink
-100 = close your eyes
-1000 = jump
+You are starting a secret coding club with some friends and friends-of-friends.
+Not everyone knows each other, so you and your friends have decided to create a secret handshake that you can use to recognize that someone is a member.
+You don't want anyone who isn't in the know to be able to crack the code.
 
+You've designed the code so that one person says a number between 1 and 31, and the other person turns it into a series of actions.
 
+## Instructions
+
+Your task is to convert a number between 1 and 31 to a sequence of actions in the secret handshake.
+
+The sequence of actions is chosen by looking at the rightmost five digits of the number once it's been converted to binary.
+Start at the right-most digit and move left.
+
+The actions for each number place are:
+
+```plaintext
+00001 = wink
+00010 = double blink
+00100 = close your eyes
+01000 = jump
 10000 = Reverse the order of the operations in the secret handshake.
 ```
 
-Given a decimal number, convert it to the appropriate sequence of events for a secret handshake.
+Let's use the number `9` as an example:
 
-Here's a couple of examples:
+- 9 in binary is `1001`.
+- The digit that is farthest to the right is 1, so the first action is `wink`.
+- Going left, the next digit is 0, so there is no double-blink.
+- Going left again, the next digit is 0, so you leave your eyes open.
+- Going left again, the next digit is 1, so you jump.
 
-Given the input 3, the function would return the array
-["wink", "double blink"] because 3 is 11 in binary.
+That was the last digit, so the final code is:
 
-Given the input 19, the function would return the array
-["double blink", "wink"] because 19 is 10011 in binary.
-Notice that the addition of 16 (10000 in binary)
-has caused the array to be reversed.
-
-
-Run the tests with:
-
-```bash
-bats secret_handshake_test.sh
+```plaintext
+wink, jump
 ```
 
-After the first test(s) pass, continue by commenting out or removing the
-`[[ $BATS_RUN_SKIPPED == true ]] || skip` 
-annotations prepending other tests.
+Given the number 26, which is `11010` in binary, we get the following actions:
 
-To run all tests, including the ones with `skip` annotations, run:
+- double blink
+- jump
+- reverse actions
 
-```bash
-BATS_RUN_SKIPPED=true bats secret_handshake_test.sh
+The secret handshake for 26 is therefore:
+
+```plaintext
+jump, double blink
 ```
+
+~~~~exercism/note
+If you aren't sure what binary is or how it works, check out [this binary tutorial][intro-to-binary].
+
+[intro-to-binary]: https://medium.com/basecs/bits-bytes-building-with-binary-13cb4289aafa
+~~~~
 
 ## Source
 
-Bert, in Mary Poppins [http://www.imdb.com/title/tt0058331/quotes/qt0437047](http://www.imdb.com/title/tt0058331/quotes/qt0437047)
+### Created by
 
+- @glennj
 
-## External utilities
-`Bash` is a language to write "scripts" -- programs that can call
-external tools, such as
-[`sed`](https://www.gnu.org/software/sed/),
-[`awk`](https://www.gnu.org/software/gawk/),
-[`date`](https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html)
-and even programs written in other programming languages, 
-like [`Python`](https://www.python.org/).
-This track does not restrict the usage of these utilities, and as long
-as your solution is portable between systems and does not require
-installation of third party applications, feel free to use them to solve
-the exercise.
+### Contributed to by
 
-For an extra challenge, if you would like to have a better understanding
-of the language, try to re-implement the solution in pure `Bash`,
-without using any external tools. Note that there are some types of
-problems that bash cannot solve, such as performing floating point
-arithmetic and manipulating dates: for those, you must call out to an
-external tool.
+- @bkhl
+- @guygastineau
+- @IsaacG
+- @kotp
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others
-have completed the exercise.
+### Based on
+
+Bert, in Mary Poppins - https://www.imdb.com/title/tt0058331/quotes/?item=qt0437047
